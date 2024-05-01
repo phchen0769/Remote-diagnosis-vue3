@@ -7,10 +7,10 @@ module.exports = {
   // webpack devServer配置 ：提供了代理功能，把所有请求转发到另一个服务器上。
   devServer: {
     // 监听端口
-    port: 8080,
+    port: 8081,
 
     client: {
-      webSocketURL: 'ws://0.0.0.0:8080/ws'
+      webSocketURL: 'ws://0.0.0.0:8081/ws'
     },
     headers: {
       'Access-Control-Allow-Origin': '*'
@@ -21,8 +21,8 @@ module.exports = {
       // 天坑!!!!!，此处位置必须和.env.development中的VUE_APP_BASE_API一致,否则代理不生效
       '/api': {
         // 要代理的地址
-        target: 'http://10.165.27.210:8000/',
-        // target: 'http://192.168.12.166:8000/',
+        // target: 'http://10.165.27.210:8000/',
+        target: 'http://192.168.12.166:8000/',
         // 允许跨域
         changeOrigin: true
       }
